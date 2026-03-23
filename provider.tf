@@ -1,0 +1,20 @@
+terraform {
+  required_providers {
+    proxmox = {
+      source  = "bpg/proxmox"
+      version = "0.98.1"
+    }
+    random = {
+      source = "hashicorp/random"
+    }
+    external = { 
+      source = "hashicorp/external"
+      version = "2.3.5"
+    }
+  } 
+}
+
+provider "proxmox" {
+  endpoint  = var.proxmox_api_url
+  api_token = "${var.proxmox_api_token_id}=${var.proxmox_api_token_secret}"
+}
